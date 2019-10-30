@@ -740,11 +740,13 @@
                   counter++;
                 }
                 if (typeof printData[counter] === "string") {
+                  var s_title = printData[counter];
+                  counter++;
                   var s_url = printData[counter];
                   if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
                     s_url = 'http://' + s_url;
                   }
-                  outHTML += " Relatório: <a href='" + s_url + "'>" + s_url + "</a>";
+                  outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
                   counter++;
                 }
                 outHTML += "<ul><li>";
@@ -777,11 +779,13 @@
                   counter++;
                 }
                 if (typeof printData[counter] === "string") {
+                  var s_title = printData[counter];
+                  counter++;
                   var s_url = printData[counter];
                   if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
                     s_url = 'http://' + s_url;
                   }
-                  outHTML += " Relatório: <a href='" + s_url + "'>" + s_url + "</a>";
+                  outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
                   counter++;
                 }
                 if (!isNaN(printData[counter])) {
@@ -814,11 +818,13 @@
                   counter++;
                 }
                 if (typeof printData[counter] === "string") {
+                  var s_title = printData[counter];
+                  counter++;
                   var s_url = printData[counter];
                   if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
                     s_url = 'http://' + s_url;
                   }
-                  outHTML += " Relatório: <a href='" + s_url + "'>" + s_url + "</a>";
+                  outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
                   counter++;
                 }
                 if (typeof printData[counter] === "string") {
