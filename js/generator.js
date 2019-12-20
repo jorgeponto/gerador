@@ -1239,12 +1239,17 @@
           var fElem = document.getElementById(elemId);
           fElem.value = date;
           fElem.dispatchEvent(event);
-          // get url of the report
+          // get title and url of the report
           while (list[i].childNodes[nodeIndex] && list[i].childNodes[nodeIndex].nodeType !== Node.ELEMENT_NODE) {
             nodeIndex++;
           }
           content = list[i].childNodes[nodeIndex]; // a node with url
           nodeIndex++;
+          var title = content.textContent || content.innerText;
+          var elemId = formName + "title_" + elemNum;
+          var fElem = document.getElementById(elemId);
+          fElem.value = title;
+          fElem.dispatchEvent(event);
           var url = content.getAttribute('href');
           var elemId = formName + "address_" + elemNum;
           var fElem = document.getElementById(elemId);
@@ -1332,12 +1337,17 @@
           var fElem = document.getElementById(elemId);
           fElem.value = date;
           fElem.dispatchEvent(event);
-          // get url of the report
+          // get title and url of the report
           while (list[i].childNodes[nodeIndex] && list[i].childNodes[nodeIndex].nodeType !== Node.ELEMENT_NODE) {
             nodeIndex++;
           }
           content = list[i].childNodes[nodeIndex]; // a node with url
           nodeIndex++;
+          var title = content.textContent || content.innerText;
+          var elemId = formName + "title_" + elemNum;
+          var fElem = document.getElementById(elemId);
+          fElem.value = title;
+          fElem.dispatchEvent(event);
           var url = content.getAttribute('href');
           var elemId = formName + "address_" + elemNum;
           var fElem = document.getElementById(elemId);
@@ -1421,12 +1431,17 @@
           var fElem = document.getElementById(elemId);
           fElem.value = date;
           fElem.dispatchEvent(event);
-          // get url of the report
+          // get title and url of the report
           while (list[i].childNodes[nodeIndex] && list[i].childNodes[nodeIndex].nodeType !== Node.ELEMENT_NODE) {
             nodeIndex++;
           }
           content = list[i].childNodes[nodeIndex]; // a node with url
           nodeIndex++;
+          var title = content.textContent || content.innerText;
+          var elemId = formName + "title_" + elemNum;
+          var fElem = document.getElementById(elemId);
+          fElem.value = title;
+          fElem.dispatchEvent(event);
           var url = content.getAttribute('href');
           var elemId = formName + "url_" + elemNum;
           var fElem = document.getElementById(elemId);
