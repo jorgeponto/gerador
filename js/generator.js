@@ -730,118 +730,132 @@
           default:
             if (item.id === "accstmnt_assessment_with_tools_summary" && printData) {
               var printDataSize = printData.length;
-              var counter = 0;
-              var outHTML = "<ol>";
-              while (counter < printDataSize) {
-                outHTML += "<li>";
-                if ((isDateSupported && !isNaN(Date.parse(printData[counter]))) ||
-                  (!isDateSupported && typeof printData[counter] === "string")) {
-                  outHTML += "(" + printData[counter] + ").";
-                  counter++;
-                }
-                if (typeof printData[counter] === "string") {
-                  var s_title = printData[counter];
-                  counter++;
-                  var s_url = printData[counter];
-                  if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
-                    s_url = 'http://' + s_url;
+              if (printDataSize !== 6) {
+                outHTML = "<p>Todos os campos relativos à avaliação automática devem ser preenchidos.</p>";
+              } else {
+                var counter = 0;
+                var outHTML = "<ol>";
+                while (counter < printDataSize) {
+                  outHTML += "<li>";
+                  if ((isDateSupported && !isNaN(Date.parse(printData[counter]))) ||
+                    (!isDateSupported && typeof printData[counter] === "string")) {
+                    outHTML += "(" + printData[counter] + ").";
+                    counter++;
                   }
-                  outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
-                  counter++;
+                  if (typeof printData[counter] === "string") {
+                    var s_title = printData[counter];
+                    counter++;
+                    var s_url = printData[counter];
+                    if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
+                      s_url = 'http://' + s_url;
+                    }
+                    outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
+                    counter++;
+                  }
+                  outHTML += "<ul><li>";
+                  if (typeof printData[counter] === "string") {
+                    outHTML += "Ferramenta utilizada: " + printData[counter] + "</li>";
+                    counter++;
+                  }
+                  if (!isNaN(printData[counter])) {
+                    outHTML += "<li>Amostra: " + printData[counter] + " páginas.</li>";
+                    counter++;
+                  }
+                  if (typeof printData[counter] === "string") {
+                    outHTML += "<li>Principais resultados (sumário): " + printData[counter] + "</li></ul>";
+                    counter++;
+                  }
+                  outHTML += "</li>";
                 }
-                outHTML += "<ul><li>";
-                if (typeof printData[counter] === "string") {
-                  outHTML += "Ferramenta utilizada: " + printData[counter] + "</li>";
-                  counter++;
-                }
-                if (!isNaN(printData[counter])) {
-                  outHTML += "<li>Amostra: " + printData[counter] + " páginas.</li>";
-                  counter++;
-                }
-                if (typeof printData[counter] === "string") {
-                  outHTML += "<li>Principais resultados (sumário): " + printData[counter] + "</li></ul>";
-                  counter++;
-                }
-                outHTML += "</li>";
+                outHTML += "</ol>";
               }
-              outHTML += "</ol>";
               item.innerHTML = outHTML;
             }
             else if (item.id === "accstmnt_assessment_with_manual_summary" && printData) {
               var printDataSize = printData.length;
-              var counter = 0;
-              var outHTML = "<ol>";
-              while (counter < printDataSize) {
-                outHTML += "<li>";
-                if ((isDateSupported && !isNaN(Date.parse(printData[counter]))) ||
-                  (!isDateSupported && typeof printData[counter] === "string")) {
-                  outHTML += "(" + printData[counter] + ").";
-                  counter++;
-                }
-                if (typeof printData[counter] === "string") {
-                  var s_title = printData[counter];
-                  counter++;
-                  var s_url = printData[counter];
-                  if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
-                    s_url = 'http://' + s_url;
-                  }
-                  outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
-                  counter++;
-                }
-                if (!isNaN(printData[counter])) {
-                  outHTML += "<ul><li>" + "Amostra: " + printData[counter] + " páginas.</li>";
-                  counter++;
-                }
-                if (!isNaN(printData[counter])) {
-                  outHTML += "<li>Principais resultados (heurísticas satisfeitas/total heurísticas aplicadas): ";
-                  outHTML += printData[counter] + "/";
-                  counter++;
-                }
-                if (!isNaN(printData[counter])) {
-                  outHTML += printData[counter] + "</li></ul>";
-                  counter++;
-                }
-                outHTML += "</li>";
+              if (printDataSize !== 6) {
+                outHTML = "<p>Todos os campos relativos à avaliação manual devem ser preenchidos.</p>";
               }
-              outHTML += "</ol>";
+              else {
+                var counter = 0;
+                var outHTML = "<ol>";
+                while (counter < printDataSize) {
+                  outHTML += "<li>";
+                  if ((isDateSupported && !isNaN(Date.parse(printData[counter]))) ||
+                    (!isDateSupported && typeof printData[counter] === "string")) {
+                    outHTML += "(" + printData[counter] + ").";
+                    counter++;
+                  }
+                  if (typeof printData[counter] === "string") {
+                    var s_title = printData[counter];
+                    counter++;
+                    var s_url = printData[counter];
+                    if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
+                      s_url = 'http://' + s_url;
+                    }
+                    outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
+                    counter++;
+                  }
+                  if (!isNaN(printData[counter])) {
+                    outHTML += "<ul><li>" + "Amostra: " + printData[counter] + " páginas.</li>";
+                    counter++;
+                  }
+                  if (!isNaN(printData[counter])) {
+                    outHTML += "<li>Principais resultados (heurísticas satisfeitas/total heurísticas aplicadas): ";
+                    outHTML += printData[counter] + "/";
+                    counter++;
+                  }
+                  if (!isNaN(printData[counter])) {
+                    outHTML += printData[counter] + "</li></ul>";
+                    counter++;
+                  }
+                  outHTML += "</li>";
+                }
+                outHTML += "</ol>";
+              }
               item.innerHTML = outHTML;
             }
             else if (item.id === "accstmnt_assessment_with_users_summary" && printData) {
               var printDataSize = printData.length;
-              var counter = 0;
-              var outHTML = "<ol>";
-              while (counter < printDataSize) {
-                outHTML += "<li>";
-                if ((isDateSupported && !isNaN(Date.parse(printData[counter]))) ||
-                  (!isDateSupported && typeof printData[counter] === "string")) {
-                  outHTML += "(" + printData[counter] + ").";
-                  counter++;
-                }
-                if (typeof printData[counter] === "string") {
-                  var s_title = printData[counter];
-                  counter++;
-                  var s_url = printData[counter];
-                  if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
-                    s_url = 'http://' + s_url;
-                  }
-                  outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
-                  counter++;
-                }
-                if (typeof printData[counter] === "string") {
-                  outHTML += "<ul><li>Caraterização dos participantes: " + printData[counter] + "</li>";
-                  counter++;
-                }
-                if (typeof printData[counter] === "string") {
-                  outHTML += "<li>" + "Tarefas/Processos: " + printData[counter] + "</li>";
-                  counter++;
-                }
-                if (typeof printData[counter] === "string") {
-                  outHTML += "<li>" + "Principais resultados (sumário): " + printData[counter] + "</li></ul>";
-                  counter++;
-                }
-                outHTML += "</li>";
+              if (printDataSize !== 6) {
+                outHTML = "<p>Todos os campos relativos à avaliação com utilizadores devem ser preenchidos.</p>";
               }
-              outHTML += "</ol>";
+              else {
+                var counter = 0;
+                var outHTML = "<ol>";
+                while (counter < printDataSize) {
+                  outHTML += "<li>";
+                  if ((isDateSupported && !isNaN(Date.parse(printData[counter]))) ||
+                    (!isDateSupported && typeof printData[counter] === "string")) {
+                    outHTML += "(" + printData[counter] + ").";
+                    counter++;
+                  }
+                  if (typeof printData[counter] === "string") {
+                    var s_title = printData[counter];
+                    counter++;
+                    var s_url = printData[counter];
+                    if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
+                      s_url = 'http://' + s_url;
+                    }
+                    outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
+                    counter++;
+                  }
+                  if (typeof printData[counter] === "string") {
+                    outHTML += "<ul><li>Caraterização dos participantes: " + printData[counter] + "</li>";
+                    counter++;
+                  }
+                  if (typeof printData[counter] === "string") {
+                    outHTML += "<li>" + "Tarefas/Processos: " + printData[counter] + "</li>";
+                    counter++;
+                  }
+                  if (typeof printData[counter] === "string") {
+                    outHTML += "<li>" + "Principais resultados (sumário): " + printData[counter] + "</li></ul>";
+                    counter++;
+                  }
+                  outHTML += "</li>";
+                }
+                outHTML += "</ol>";
+              }
               item.innerHTML = outHTML;
             }
             else if (item.id === "accstmnt_orginfo_contacts_summary" && printData) {
