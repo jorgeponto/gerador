@@ -602,7 +602,7 @@
         el.innerHTML = document.getElementById('entity-target-app-name').value;
       }
     });
-    Array.prototype.forEach.call(document.getElementsByName('siteurl'), function updateSiteURL(el) {
+    Array.prototype.forEach.call(document.querySelectorAll("a.siteurl"), function updateSiteURL(el) {
       if (document.getElementById('entity-target').value === "website") {
         el.setAttribute('href', document.getElementById('entity-target-url').value);
       } else {
@@ -885,11 +885,12 @@
                 outHTML = "";
               }
               if (printData !== "no") {
+                outHTML = "<p>";
                 if (document.getElementById('entity-target').value === "website") {
-                  outHTML = "O sítio Web ";
+                  outHTML += "O sítio Web ";
                   outHTML += document.getElementById('entity-target-name').value;
                 } else if (document.getElementById('entity-target').value === "app") {
-                  outHTML = "A aplicação móvel ";
+                  outHTML += "A aplicação móvel ";
                   outHTML += document.getElementById('entity-target-app-name').value;
                 }
                 outHTML += " d";
@@ -911,7 +912,7 @@
                   outHTML += document.getElementById('entity-target-app-name').value;
                 }
                 outHTML += ":";
-                outHTML += '<span class="mr mr-seal-checks">';
+                outHTML += "</p>"
                 outHTML += "<ul>";
                 outHTML += '<li>passa a checklist “Conteúdos”</li>';
                 outHTML += "<li>passa a bateria de testes de acessibilidade de uma ferramenta de validação automática comummente utilizada no mercado para a conformidade ‘AA’</li>";
@@ -924,9 +925,7 @@
                 outHTML += '<li>foi alvo de testes de usabilidade com utilizadores reais, nomeadamente com utilizadores com deficiência</li>';
                 outHTML += "</ul>";
               }
-              if (printData !== "no") {
-                outHTML += '</span>';
-              }
+
               item.innerHTML = outHTML;
             }
             else if (item.id === "accstmnt_seal_summary_empty" && printData) {
