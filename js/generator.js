@@ -211,12 +211,12 @@
 
       // Update name of entity on the form
       if (target.id && target.id === 'entity-gender') {
-        Array.prototype.forEach.call(document.getElementsByName('entity_article'), function updateArticle(el) {
+        Array.prototype.forEach.call(document.querySelectorAll("span.entity_article"), function updateArticle(el) {
           el.innerHTML = target.value.toLowerCase();
         });
       }
       if (target.id && target.id === 'entity-name') {
-        Array.prototype.forEach.call(document.getElementsByName('entity_description'), function updateName(el) {
+        Array.prototype.forEach.call(document.querySelectorAll("span.entity_description"), function updateName(el) {
           el.innerHTML = target.value;
         });
       }
@@ -224,17 +224,17 @@
       // Handle select box for type of target: website or app
       if (target.id && target.id === 'entity-target') {
         if (target.value === "website") {
-          Array.prototype.forEach.call(document.getElementsByName('entity-target-website'), function showWebsite(el) {
+          Array.prototype.forEach.call(document.querySelectorAll("span.entity-target-website"), function showWebsite(el) {
             el.removeAttribute('hidden');
           });
-          Array.prototype.forEach.call(document.getElementsByName('entity-target-app'), function hideApp(el) {
+          Array.prototype.forEach.call(document.querySelectorAll("span.entity-target-app"), function hideApp(el) {
             el.setAttribute('hidden', '');
           });
         } else if (target.value === "app") {
-          Array.prototype.forEach.call(document.getElementsByName('entity-target-website'), function hideWebsite(el) {
+          Array.prototype.forEach.call(document.querySelectorAll("span.entity-target-website"), function hideWebsite(el) {
             el.setAttribute('hidden', '');
           });
-          Array.prototype.forEach.call(document.getElementsByName('entity-target-app'), function showApp(el) {
+          Array.prototype.forEach.call(document.querySelectorAll("span.entity-target-app"), function showApp(el) {
             el.removeAttribute('hidden');
           });
         }
@@ -251,7 +251,7 @@
             el.removeAttribute('hidden');
           });
         }
-        Array.prototype.forEach.call(document.getElementsByName('conformance-output'), function updateConformanceOutput(el) {
+        Array.prototype.forEach.call(document.querySelectorAll("span.conformance-output"), function updateConformanceOutput(el) {
           if (target.value === "full") {
             el.innerHTML = "plenamente conforme";
           } else if (target.value === "partial") {
@@ -580,7 +580,7 @@
     // Print formdata into printables: [data-print]
     _printFormInput();
 
-    Array.prototype.forEach.call(document.getElementsByName('target-type'), function updateTarget(el) {
+    Array.prototype.forEach.call(document.querySelectorAll("span.target-type"), function updateTarget(el) {
       if (document.getElementById('entity-target').value === "website") {
         if (el.getAttribute('class') !== null && el.getAttribute('class').indexOf('capFL') !== -1) {
           el.innerHTML = "O sítio Web";
@@ -595,14 +595,14 @@
         }
       }
     });
-    Array.prototype.forEach.call(document.getElementsByName('target-name'), function updateTargetName(el) {
+    Array.prototype.forEach.call(document.querySelectorAll("span.target-name"), function updateTargetName(el) {
       if (document.getElementById('entity-target').value === "website") {
         el.innerHTML = document.getElementById('entity-target-name').value;
       } else if (document.getElementById('entity-target').value === "app") {
         el.innerHTML = document.getElementById('entity-target-app-name').value;
       }
     });
-    Array.prototype.forEach.call(document.getElementsByName('siteurl'), function updateSiteURL(el) {
+    Array.prototype.forEach.call(document.querySelectorAll("a.siteurl"), function updateSiteURL(el) {
       if (document.getElementById('entity-target').value === "website") {
         el.setAttribute('href', document.getElementById('entity-target-url').value);
       } else {
@@ -885,11 +885,12 @@
                 outHTML = "";
               }
               if (printData !== "no") {
+                outHTML = "<p>";
                 if (document.getElementById('entity-target').value === "website") {
-                  outHTML = "O sítio Web ";
+                  outHTML += "O sítio Web ";
                   outHTML += document.getElementById('entity-target-name').value;
                 } else if (document.getElementById('entity-target').value === "app") {
-                  outHTML = "A aplicação móvel ";
+                  outHTML += "A aplicação móvel ";
                   outHTML += document.getElementById('entity-target-app-name').value;
                 }
                 outHTML += " d";
@@ -911,7 +912,7 @@
                   outHTML += document.getElementById('entity-target-app-name').value;
                 }
                 outHTML += ":";
-                outHTML += '<span class="mr mr-seal-checks">';
+                outHTML += "</p>"
                 outHTML += "<ul>";
                 outHTML += '<li>passa a checklist “Conteúdos”</li>';
                 outHTML += "<li>passa a bateria de testes de acessibilidade de uma ferramenta de validação automática comummente utilizada no mercado para a conformidade ‘AA’</li>";
@@ -924,9 +925,7 @@
                 outHTML += '<li>foi alvo de testes de usabilidade com utilizadores reais, nomeadamente com utilizadores com deficiência</li>';
                 outHTML += "</ul>";
               }
-              if (printData !== "no") {
-                outHTML += '</span>';
-              }
+
               item.innerHTML = outHTML;
             }
             else if (item.id === "accstmnt_seal_summary_empty" && printData) {
