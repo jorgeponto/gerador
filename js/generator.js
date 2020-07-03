@@ -995,6 +995,9 @@
           if (divChild.classList.length > 0) {
             element.classList = divChild.classList;
           }
+          if ((divChild.nodeName === "H2") && (typeof divChild.id != 'undefined')) {
+            element.id = divChild.id;
+          }
           fragment.appendChild(element);
         });
 
