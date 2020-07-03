@@ -952,13 +952,18 @@
         case 'html':
           // Prepare statement data
           var generatedStatementMarkup = _getGeneratedStatement();
+          var finalStatementMarkup = _prepareStatement(generatedStatementMarkup);
           // Then use save function with data
-          saver.saveAs(generatedStatementMarkup, filetype);
+          saver.saveAs(finalStatementMarkup, filetype);
           break;
         default:
 
       }
     }
+  }
+
+  function _prepareStatement(statementMarkup) {
+    return statementMarkup.replaceAll('article', 'div');
   }
 
   function _getGeneratedStatement() {
@@ -1174,7 +1179,7 @@
   function _parseList(savedDoc, mrName, formName) {
     var mrElem = savedDoc.getElementsByClassName(mrName)[0];
     if (mrElem) {
-      var list = mrElem.firstElementChild.querySelectorAll('li');
+      var list = mrElem.querySelectorAll('li');
       for (var i = 0; i < list.length; i++) {
         if (i > 0) {
           var button = document.getElementById(formName + 'button');
@@ -1193,8 +1198,8 @@
   function _parseDList(savedDoc, mrName, formName) {
     var mrElem = savedDoc.getElementsByClassName(mrName)[0];
     if (mrElem) {
-      var dtlist = mrElem.firstElementChild.querySelectorAll('dt');
-      var ddlist = mrElem.firstElementChild.querySelectorAll('dd');
+      var dtlist = mrElem.querySelectorAll('dt');
+      var ddlist = mrElem.querySelectorAll('dd');
       for (var i = 0; i < dtlist.length; i++) {
         if (i > 0) {
           var button = document.getElementById(formName + 'button');
@@ -1234,7 +1239,7 @@
       var select = document.getElementById('accstmnt_tools');
       select.value = 'yes';
       select.dispatchEvent(event);
-      var list = mrElem.firstElementChild.firstElementChild.childNodes;
+      var list = mrElem.firstElementChild.childNodes;
       var firstNode = true;
       var elemNum = 1;
       for (var i = 0; i < list.length; i++) {
@@ -1332,7 +1337,7 @@
       var select = document.getElementById('accstmnt_manual');
       select.value = 'yes';
       select.dispatchEvent(event);
-      var list = mrElem.firstElementChild.firstElementChild.childNodes;
+      var list = mrElem.firstElementChild.childNodes;
       var firstNode = true;
       var elemNum = 1;
       for (var i = 0; i < list.length; i++) {
@@ -1426,7 +1431,7 @@
       var select = document.getElementById('accstmnt_users');
       select.value = 'yes';
       select.dispatchEvent(event);
-      var list = mrElem.firstElementChild.firstElementChild.childNodes;
+      var list = mrElem.firstElementChild.childNodes;
       var firstNode = true;
       var elemNum = 1;
       for (var i = 0; i < list.length; i++) {
