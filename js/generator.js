@@ -995,6 +995,9 @@
           if (divChild.classList.length > 0) {
             element.classList = divChild.classList;
           }
+          if ((divChild.nodeName === "H2") && (typeof divChild.id != 'undefined')) {
+            element.id = divChild.id;
+          }
           fragment.appendChild(element);
         });
 
@@ -1157,7 +1160,8 @@
   }
 
   function _parseAnchorElem(savedDoc, mrName, formName) {
-    var mrElem = savedDoc.getElementsByName(mrName)[0];
+    var className = "a." + mrName;
+    var mrElem = savedDoc.querySelector(className);
     if (mrElem) {
       var elem = mrElem.getAttribute('href');
       var fElem = document.getElementById(formName);

@@ -1314,7 +1314,7 @@
                 </div>
 
                 <div id="statement-create-state">
-                  <h2>I. Estado de conformidade</h2>
+                  <h2 id="n1">I. Estado de conformidade</h2>
 
                   <div id="conformance-status-full">
                     <p class="capFL">
@@ -1353,13 +1353,13 @@
                       >
                       que não estão conformes e/ou alvo de isenção:
                     </p>
-                    <div class="mr mr-nonconf-sections">
+                    <span class="mr mr-nonconf-sections">
                       <ul
                         id="non-conformance-sections"
                         data-print="accstmnt_non_conformance_sections"
                         data-printfilter="capitalize"
                       ></ul>
-                    </div>
+                    </span>
                     <div
                       id="conformance-status-non-conformance-reasons"
                       data-if="accstmnt_non_conformance_reasons"
@@ -1368,12 +1368,12 @@
                         B. <strong>Razões</strong> que estão na base da não
                         conformidade dos conteúdos indicados acima:
                       </p>
-                      <div class="mr mr-nonconf-reasons">
+                      <span class="mr mr-nonconf-reasons">
                         <ul
                           id="non-conformance-reasons"
                           data-print="accstmnt_non_conformance_reasons"
                         ></ul>
-                      </div>
+                      </span>
                     </div>
                     <div
                       id="conformance-status-non-conformance-alternatives"
@@ -1383,18 +1383,18 @@
                         C. <strong>Alternativas acessíveis</strong> aos
                         constrangimentos mencionados na presente secção:
                       </p>
-                      <div class="mr mr-nonconf-alternatives">
+                      <span class="mr mr-nonconf-alternatives">
                         <ul
                           id="non-conformance-alternatives"
                           data-print="accstmnt_non_conformance_alternatives"
                         ></ul>
-                      </div>
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 <div id="statement-elaboration">
-                  <h2>
+                  <h2 id="n2">
                     II. Elaboração da presente declaração de acessibilidade e
                     usabilidade
                   </h2>
@@ -1419,12 +1419,12 @@
                     <strong>A. Avaliações automáticas levadas a efeito</strong>
                   </p>
                   <div data-if="accstmnt_assessment_with_tools_data">
-                    <div class="mr mr-automatic-summary"
-                      ><div
+                    <span class="mr mr-automatic-summary"
+                      ><span
                         data-print="accstmnt_assessment_with_tools_data"
                         id="accstmnt_assessment_with_tools_summary"
-                      ></div
-                    ></div>
+                      ></span
+                    ></span>
                   </div>
                   <div
                     data-if="accstmnt_assessment_with_tools_data"
@@ -1440,24 +1440,24 @@
                       Razões que levaram à não realização de avaliações
                       automáticas:
                     </p>
-                    <div class="mr mr-no-automatic-reasons">
+                    <span class="mr mr-no-automatic-reasons">
                       <ul
                         id="accstmnt_assessment_without_tools_list"
                         data-print="accstmnt_assessment_without_tools"
                       ></ul>
-                    </div>
+                    </span>
                   </div>
 
                   <p>
                     <strong>B. Avaliações manuais levadas a efeito:</strong>
                   </p>
                   <div data-if="accstmnt_assessment_with_manual_data">
-                    <div class="mr mr-manual-summary"
-                      ><div
+                    <span class="mr mr-manual-summary"
+                      ><span
                         data-print="accstmnt_assessment_with_manual_data"
                         id="accstmnt_assessment_with_manual_summary"
-                      ></div
-                    ></div>
+                      ></span
+                    ></span>
                   </div>
                   <div
                     data-if="accstmnt_assessment_with_manual_data"
@@ -1472,12 +1472,12 @@
                     <p>
                       Razões que levaram à não realização de avaliações manuais:
                     </p>
-                    <div class="mr mr-no-manual-reasons">
+                    <span class="mr mr-no-manual-reasons">
                       <ul
                         id="accstmnt_assessment_without_manual_list"
                         data-print="accstmnt_assessment_without_manual"
                       ></ul>
-                    </div>
+                    </span>
                   </div>
 
                   <p>
@@ -1487,12 +1487,12 @@
                     >
                   </p>
                   <div data-if="accstmnt_assessment_with_users_data">
-                    <div class="mr mr-users-summary"
-                      ><div
+                    <span class="mr mr-users-summary"
+                      ><span
                         data-print="accstmnt_assessment_with_users_data"
                         id="accstmnt_assessment_with_users_summary"
-                      ></div
-                    ></div>
+                      ></span
+                    ></span>
                   </div>
                   <div
                     data-if="accstmnt_assessment_with_users_data"
@@ -1506,7 +1506,7 @@
                 </div>
 
                 <div id="statement-contact-block">
-                  <h2>
+                  <h2 id="n3">
                     III. Contacto e solicitação de informação relativa ao sítio
                     Web
                   </h2>
@@ -1528,27 +1528,27 @@
                     id="accstmnt_orginfo_contacts_details"
                     data-if="accstmnt_orginfo_contacts"
                   >
-                    <div class="mr mr-contacts"
-                      ><div
+                    <span class="mr mr-contacts"
+                      ><span
                         data-print="accstmnt_orginfo_contacts"
                         id="accstmnt_orginfo_contacts_summary"
-                      ></div
-                    ></div>
+                      ></span
+                    ></span>
                   </div>
                 </div>
 
                 <div id="statement-seals-block">
-                  <h2>
+                  <h2 id="n4">
                     IV. Outras evidências / esforços para tornar os conteúdos
                     mais acessíveis e mais usáveis
                   </h2>
-                  <div id="accstmnt_seal_summary" data-print="entity-seal">
-                  </div>
+                  <span id="accstmnt_seal_summary" data-print="entity-seal">
+                  </span>
                   <div
                     data-if="accstmnt_assessment_additional_evidence_data"
                     data-negate
                   >
-                    <div
+                    <span
                       id="accstmnt_seal_summary_empty"
                       data-print="entity-seal"
                     >
@@ -1560,7 +1560,7 @@
                         conforme para com os requisitos de acessibilidade
                         constantes do DL n.º 83/2018, de 19 de outubro.
                       </p>
-                    </div>
+                    </span>
                   </div>
                   <div data-if="accstmnt_assessment_additional_evidence_data">
                     <h3>Outras evidências</h3>
@@ -1574,7 +1574,7 @@
                 </div>
 
                 <div id="statement-closing-block">
-                  <h2>
+                  <h2 id="n5">
                     V. Denúncia de situações de discriminaçao derivadas do
                     incumprimento dos requisitos de acessibilidade constantes do
                     DL n.º 83/2018
