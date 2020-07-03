@@ -1157,7 +1157,8 @@
   }
 
   function _parseAnchorElem(savedDoc, mrName, formName) {
-    var mrElem = savedDoc.getElementsByName(mrName)[0];
+    var className = "a." + mrName;
+    var mrElem = savedDoc.querySelector(className);
     if (mrElem) {
       var elem = mrElem.getAttribute('href');
       var fElem = document.getElementById(formName);
