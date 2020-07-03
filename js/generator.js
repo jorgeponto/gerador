@@ -730,7 +730,7 @@
           default:
             if (item.id === "accstmnt_assessment_with_tools_summary" && printData) {
               var printDataSize = printData.length;
-              if (printDataSize !== 6) {
+              if ((printDataSize === 0) || ((printDataSize % 6) !== 0)) {
                 outHTML = "<p>Todos os campos relativos à avaliação automática devem ser preenchidos.</p>";
               } else {
                 var counter = 0;
@@ -773,7 +773,7 @@
             }
             else if (item.id === "accstmnt_assessment_with_manual_summary" && printData) {
               var printDataSize = printData.length;
-              if (printDataSize !== 6) {
+              if ((printDataSize === 0) || ((printDataSize % 6) !== 0)) {
                 outHTML = "<p>Todos os campos relativos à avaliação manual devem ser preenchidos.</p>";
               }
               else {
@@ -817,7 +817,7 @@
             }
             else if (item.id === "accstmnt_assessment_with_users_summary" && printData) {
               var printDataSize = printData.length;
-              if (printDataSize !== 6) {
+              if ((printDataSize === 0) || ((printDataSize % 6) !== 0)) {
                 outHTML = "<p>Todos os campos relativos à avaliação com utilizadores devem ser preenchidos.</p>";
               }
               else {
