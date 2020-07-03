@@ -582,13 +582,13 @@
 
     Array.prototype.forEach.call(document.querySelectorAll("span.target-type"), function updateTarget(el) {
       if (document.getElementById('entity-target').value === "website") {
-        if (el.getAttribute('class') !== null && el.getAttribute('class').indexOf('capFL') !== -1) {
+        if ((el.getAttribute('class') !== null && el.getAttribute('class').indexOf('capFL') !== -1) || (el.parentNode.getAttribute('class') !== null && el.parentNode.getAttribute('class').indexOf('capFL') !== -1)) {
           el.innerHTML = "O sítio Web";
         } else {
           el.innerHTML = "o sítio Web";
         }
       } else if (document.getElementById('entity-target').value === "app") {
-        if (el.getAttribute('class') !== null && el.getAttribute('class').indexOf('capFL') === -1) {
+        if ((el.getAttribute('class') !== null && el.getAttribute('class').indexOf('capFL') === -1) || (el.parentNode.getAttribute('class') !== null && el.parentNode.getAttribute('class').indexOf('capFL') === -1)) {
           el.innerHTML = "A aplicação móvel";
         } else {
           el.innerHTML = "a aplicação móvel";
