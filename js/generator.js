@@ -746,9 +746,6 @@
                     var s_title = printData[counter];
                     counter++;
                     var s_url = printData[counter];
-                    if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
-                      s_url = 'http://' + s_url;
-                    }
                     outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
                     counter++;
                   }
@@ -790,9 +787,6 @@
                     var s_title = printData[counter];
                     counter++;
                     var s_url = printData[counter];
-                    if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
-                      s_url = 'http://' + s_url;
-                    }
                     outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
                     counter++;
                   }
@@ -834,9 +828,6 @@
                     var s_title = printData[counter];
                     counter++;
                     var s_url = printData[counter];
-                    if (!s_url.match(/^[a-zA-Z]+:\/\//)) {
-                      s_url = 'http://' + s_url;
-                    }
                     outHTML += " Relatório: <a href='" + s_url + "'>" + s_title + "</a>";
                     counter++;
                   }
