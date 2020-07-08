@@ -954,7 +954,7 @@
   }
 
   function _prepareStatement(statementMarkup) {
-    return statementMarkup.replaceAll('article', 'div');
+    return statementMarkup.replace(/article/g, 'div');
   }
 
   function _getGeneratedStatement() {
