@@ -1064,13 +1064,16 @@
 
   function _loadFormURL() {
     // get the url
-    var url = window.prompt("Introduza o URL da declaração a ler.\n\nATENÇÃO: Esta funcionalidade só funciona se a declaração estiver no mesmo servidor onde esta página está a ser consultada ou se o servidor estiver configurado para responder com os cabeçalhos CORS que permitam a consulta de materiais a partir de domínios diferentes.", "http");
+    var url = window.prompt("Introduza o URL da declaração a ler.", "http");
     if (url === undefined || url === '')
       return;
 
+
     // get doc from url and parse doc
+    var serviceUrl = "http://127.0.0.1:3001/?url=" + url;
+    console.log(serviceUrl);
     var request = new XMLHttpRequest();
-    request.open("GET", url);
+    request.open("GET", serviceUrl);
     request.onreadystatechange = function () {
       if (request.readyState === 4 && request.status === 200) {
         var type = request.getResponseHeader('Content-Type');
