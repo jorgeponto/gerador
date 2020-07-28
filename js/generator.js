@@ -27,6 +27,8 @@
 
   var isDateSupported = true;
 
+  var fetchServer = "http://127.0.0.1:3001/?url=";
+
   /**
    * statementForm module
    * ---
@@ -1070,7 +1072,7 @@
 
 
     // get doc from url and parse doc
-    var serviceUrl = "http://127.0.0.1:3001/?url=" + url;
+    var serviceUrl = fetchServer + url;
     console.log(serviceUrl);
     var request = new XMLHttpRequest();
     request.open("GET", serviceUrl);
