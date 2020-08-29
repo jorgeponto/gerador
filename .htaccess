@@ -1,0 +1,20 @@
+RewriteEngine on
+
+#RewriteCond $1 !^(manutencao\.html|manutencao\.png)
+#RewriteRule ^(.*)$ /manutencao.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.html)
+RewriteRule ^(.*)$ ./index.html/$1 [L]
+
+
+
+<IfModule mod_deflate.c>
+<FilesMatch "\.(js|css|svg|html)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+</IfModule>
+
+FileETag MTime Size
+
