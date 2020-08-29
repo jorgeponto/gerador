@@ -64,10 +64,10 @@ small {
 .tab-menu li {
 	padding: 20px 20px 0px 0;
     margin: 0px 0px 0px 0;
-	border-right: 4px solid #f1f1f1;
+	border-right: 5px solid #f1f1f1;
 }
 .tab-menu li.selected{
-	border-right: 4px solid #333399;
+	border-right: 5px solid #333399;
 }
 .tab-menu li a {
 	font-weight: 600;
@@ -127,7 +127,7 @@ li.separador  {
 }
 .tab-menu hr {
 	border: 0px;
-	border-bottom: 1px solid #333333;
+	border-bottom: 1px solid #d8d8d8;
 	margin: 0 !important;
 }
 
@@ -320,6 +320,7 @@ label[for^="accstmnt_assessment_with_users"], label[for^="accstmnt_orginfo_conta
 }
 .btn_tutorial span{
 	padding-left: 10px;
+	padding-top: 5px;
 }
 .btn_tutorial:hover{
 	cursor: pointer;animation-name: btn_hover;
@@ -394,7 +395,7 @@ label[for^="accstmnt_assessment_with_users"], label[for^="accstmnt_orginfo_conta
 */
 
 
-@media (max-width: 1320px) {
+@media (max-width: 1260px) {
 	.button-group-right {
 		clear: both;
 		text-align: left;
